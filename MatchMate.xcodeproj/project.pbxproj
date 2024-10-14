@@ -16,6 +16,8 @@
 		52EAAF962CBCF0DF00B2DFBB /* MatchMateUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52EAAF952CBCF0DF00B2DFBB /* MatchMateUITests.swift */; };
 		52EAAF982CBCF0DF00B2DFBB /* MatchMateUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52EAAF972CBCF0DF00B2DFBB /* MatchMateUITestsLaunchTests.swift */; };
 		52EAAFAB2CBCFF6A00B2DFBB /* UserProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52EAAFAA2CBCFF6A00B2DFBB /* UserProfile.swift */; };
+		52EAAFAE2CBD13AE00B2DFBB /* UserProfileEntity+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52EAAFAC2CBD13AE00B2DFBB /* UserProfileEntity+CoreDataClass.swift */; };
+		52EAAFB32CBD145400B2DFBB /* UserProfileRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52EAAFB22CBD145400B2DFBB /* UserProfileRepository.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +50,8 @@
 		52EAAF952CBCF0DF00B2DFBB /* MatchMateUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchMateUITests.swift; sourceTree = "<group>"; };
 		52EAAF972CBCF0DF00B2DFBB /* MatchMateUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchMateUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		52EAAFAA2CBCFF6A00B2DFBB /* UserProfile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserProfile.swift; sourceTree = "<group>"; };
+		52EAAFAC2CBD13AE00B2DFBB /* UserProfileEntity+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserProfileEntity+CoreDataClass.swift"; sourceTree = "<group>"; };
+		52EAAFB22CBD145400B2DFBB /* UserProfileRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileRepository.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,6 +102,7 @@
 		52EAAF742CBCF0DD00B2DFBB /* MatchMate */ = {
 			isa = PBXGroup;
 			children = (
+				52EAAFB12CBD143B00B2DFBB /* Repository */,
 				52EAAFA92CBCFE3B00B2DFBB /* ViewModel */,
 				52EAAFA42CBCF4FA00B2DFBB /* Model */,
 				52EAAF752CBCF0DD00B2DFBB /* MatchMateApp.swift */,
@@ -137,6 +142,7 @@
 		52EAAFA42CBCF4FA00B2DFBB /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				52EAAFB02CBD13BD00B2DFBB /* CoreDataModel */,
 				52EAAFAA2CBCFF6A00B2DFBB /* UserProfile.swift */,
 			);
 			path = Model;
@@ -147,6 +153,22 @@
 			children = (
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		52EAAFB02CBD13BD00B2DFBB /* CoreDataModel */ = {
+			isa = PBXGroup;
+			children = (
+				52EAAFAC2CBD13AE00B2DFBB /* UserProfileEntity+CoreDataClass.swift */,
+			);
+			path = CoreDataModel;
+			sourceTree = "<group>";
+		};
+		52EAAFB12CBD143B00B2DFBB /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+				52EAAFB22CBD145400B2DFBB /* UserProfileRepository.swift */,
+			);
+			path = Repository;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -282,6 +304,8 @@
 				52EAAF7F2CBCF0DE00B2DFBB /* Persistence.swift in Sources */,
 				52EAAF822CBCF0DE00B2DFBB /* MatchMate.xcdatamodeld in Sources */,
 				52EAAFAB2CBCFF6A00B2DFBB /* UserProfile.swift in Sources */,
+				52EAAFB32CBD145400B2DFBB /* UserProfileRepository.swift in Sources */,
+				52EAAFAE2CBD13AE00B2DFBB /* UserProfileEntity+CoreDataClass.swift in Sources */,
 				52EAAF762CBCF0DD00B2DFBB /* MatchMateApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -27,7 +27,7 @@ struct LocationInfo: Decodable {
 }
 
 struct StreetInfo: Decodable {
-    var number: Int
+    var number: Int32
     var name: String
 }
 
@@ -41,7 +41,7 @@ struct TimeZoneInfo: Decodable {
 
 struct DateOfBirthInfo: Decodable {
     var date: String
-    var age: Int
+    var age: Int32
 }
 
 struct PictureInfo: Decodable {
