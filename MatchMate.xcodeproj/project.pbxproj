@@ -18,6 +18,10 @@
 		52EAAFAB2CBCFF6A00B2DFBB /* UserProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52EAAFAA2CBCFF6A00B2DFBB /* UserProfile.swift */; };
 		52EAAFAE2CBD13AE00B2DFBB /* UserProfileEntity+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52EAAFAC2CBD13AE00B2DFBB /* UserProfileEntity+CoreDataClass.swift */; };
 		52EAAFB32CBD145400B2DFBB /* UserProfileRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52EAAFB22CBD145400B2DFBB /* UserProfileRepository.swift */; };
+		52EAAFB62CBD1B2D00B2DFBB /* ApiResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52EAAFB52CBD1B2D00B2DFBB /* ApiResponseModel.swift */; };
+		52EAAFB82CBD1B6A00B2DFBB /* ServiceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52EAAFB72CBD1B6A00B2DFBB /* ServiceManager.swift */; };
+		52EAAFBA2CBD1D1200B2DFBB /* UserProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52EAAFB92CBD1D1200B2DFBB /* UserProfileViewModel.swift */; };
+		52EAAFBD2CBD24E000B2DFBB /* MatchCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52EAAFBC2CBD24E000B2DFBB /* MatchCardView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,6 +56,10 @@
 		52EAAFAA2CBCFF6A00B2DFBB /* UserProfile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserProfile.swift; sourceTree = "<group>"; };
 		52EAAFAC2CBD13AE00B2DFBB /* UserProfileEntity+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserProfileEntity+CoreDataClass.swift"; sourceTree = "<group>"; };
 		52EAAFB22CBD145400B2DFBB /* UserProfileRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileRepository.swift; sourceTree = "<group>"; };
+		52EAAFB52CBD1B2D00B2DFBB /* ApiResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiResponseModel.swift; sourceTree = "<group>"; };
+		52EAAFB72CBD1B6A00B2DFBB /* ServiceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceManager.swift; sourceTree = "<group>"; };
+		52EAAFB92CBD1D1200B2DFBB /* UserProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileViewModel.swift; sourceTree = "<group>"; };
+		52EAAFBC2CBD24E000B2DFBB /* MatchCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchCardView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +110,8 @@
 		52EAAF742CBCF0DD00B2DFBB /* MatchMate */ = {
 			isa = PBXGroup;
 			children = (
+				52EAAFBB2CBD24C600B2DFBB /* View */,
+				52EAAFB42CBD1ABA00B2DFBB /* Service */,
 				52EAAFB12CBD143B00B2DFBB /* Repository */,
 				52EAAFA92CBCFE3B00B2DFBB /* ViewModel */,
 				52EAAFA42CBCF4FA00B2DFBB /* Model */,
@@ -144,6 +154,7 @@
 			children = (
 				52EAAFB02CBD13BD00B2DFBB /* CoreDataModel */,
 				52EAAFAA2CBCFF6A00B2DFBB /* UserProfile.swift */,
+				52EAAFB52CBD1B2D00B2DFBB /* ApiResponseModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -151,6 +162,7 @@
 		52EAAFA92CBCFE3B00B2DFBB /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				52EAAFB92CBD1D1200B2DFBB /* UserProfileViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -169,6 +181,22 @@
 				52EAAFB22CBD145400B2DFBB /* UserProfileRepository.swift */,
 			);
 			path = Repository;
+			sourceTree = "<group>";
+		};
+		52EAAFB42CBD1ABA00B2DFBB /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				52EAAFB72CBD1B6A00B2DFBB /* ServiceManager.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		52EAAFBB2CBD24C600B2DFBB /* View */ = {
+			isa = PBXGroup;
+			children = (
+				52EAAFBC2CBD24E000B2DFBB /* MatchCardView.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -303,10 +331,14 @@
 			files = (
 				52EAAF7F2CBCF0DE00B2DFBB /* Persistence.swift in Sources */,
 				52EAAF822CBCF0DE00B2DFBB /* MatchMate.xcdatamodeld in Sources */,
+				52EAAFB62CBD1B2D00B2DFBB /* ApiResponseModel.swift in Sources */,
+				52EAAFB82CBD1B6A00B2DFBB /* ServiceManager.swift in Sources */,
 				52EAAFAB2CBCFF6A00B2DFBB /* UserProfile.swift in Sources */,
 				52EAAFB32CBD145400B2DFBB /* UserProfileRepository.swift in Sources */,
 				52EAAFAE2CBD13AE00B2DFBB /* UserProfileEntity+CoreDataClass.swift in Sources */,
 				52EAAF762CBCF0DD00B2DFBB /* MatchMateApp.swift in Sources */,
+				52EAAFBD2CBD24E000B2DFBB /* MatchCardView.swift in Sources */,
+				52EAAFBA2CBD1D1200B2DFBB /* UserProfileViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

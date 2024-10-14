@@ -13,6 +13,24 @@ struct UserProfile: Decodable {
     var location: LocationInfo
     var dob: DateOfBirthInfo
     var picture: PictureInfo
+    
+    init(from entity: UserProfileEntity)  {
+        self.gender = entity.gender ?? ""
+        self.phone = entity.phone ?? ""
+        self.cell = entity.cellNumber ?? ""
+        self.email = entity.email ?? ""
+        self.nat = entity.nat ?? ""
+        self.name = NameInfo(title: entity.title ?? "", first: entity.firstName ?? "", last: entity.lastName ?? "")
+        self.location = LocationInfo(
+            city: entity.city ?? "",
+            state: entity.state ?? "",
+            country: entity.country ?? "",
+            postcode: entity.postcode ?? "",
+            street: StreetInfo(number: Int32(entity.streetNumber), name: entity.streetName ?? "")
+        )
+        self.dob = DateOfBirthInfo(date: entity.dateOfBirth ?? "", age: Int32(entity.age))
+        self.picture = PictureInfo(large: entity.pictureLarge ?? "", medium: entity.pictureMedium ?? "", thumbnail: entity.pictureThumbnail ?? "")
+    }
 }
 
 struct NameInfo: Decodable {
@@ -22,8 +40,8 @@ struct NameInfo: Decodable {
 struct LocationInfo: Decodable {
     var city, state, country, postcode: String
     var street: StreetInfo
-    var coordinates: CoordinateInfo
-    var timezone: TimeZoneInfo
+    var coordinates: CoordinateInfo?
+    var timezone: TimeZoneInfo?
 }
 
 struct StreetInfo: Decodable {
