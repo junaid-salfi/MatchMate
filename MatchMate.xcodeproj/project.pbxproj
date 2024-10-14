@@ -15,7 +15,7 @@
 		52EAAF8C2CBCF0DF00B2DFBB /* MatchMateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52EAAF8B2CBCF0DF00B2DFBB /* MatchMateTests.swift */; };
 		52EAAF962CBCF0DF00B2DFBB /* MatchMateUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52EAAF952CBCF0DF00B2DFBB /* MatchMateUITests.swift */; };
 		52EAAF982CBCF0DF00B2DFBB /* MatchMateUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52EAAF972CBCF0DF00B2DFBB /* MatchMateUITestsLaunchTests.swift */; };
-		52EAAFA82CBCF68000B2DFBB /* ShadiProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52EAAFA72CBCF68000B2DFBB /* ShadiProfile.swift */; };
+		52EAAFAB2CBCFF6A00B2DFBB /* UserProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52EAAFAA2CBCFF6A00B2DFBB /* UserProfile.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,7 +47,7 @@
 		52EAAF912CBCF0DF00B2DFBB /* MatchMateUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MatchMateUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		52EAAF952CBCF0DF00B2DFBB /* MatchMateUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchMateUITests.swift; sourceTree = "<group>"; };
 		52EAAF972CBCF0DF00B2DFBB /* MatchMateUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchMateUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		52EAAFA72CBCF68000B2DFBB /* ShadiProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShadiProfile.swift; sourceTree = "<group>"; };
+		52EAAFAA2CBCFF6A00B2DFBB /* UserProfile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserProfile.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,6 +98,7 @@
 		52EAAF742CBCF0DD00B2DFBB /* MatchMate */ = {
 			isa = PBXGroup;
 			children = (
+				52EAAFA92CBCFE3B00B2DFBB /* ViewModel */,
 				52EAAFA42CBCF4FA00B2DFBB /* Model */,
 				52EAAF752CBCF0DD00B2DFBB /* MatchMateApp.swift */,
 				52EAAF792CBCF0DE00B2DFBB /* Assets.xcassets */,
@@ -136,9 +137,16 @@
 		52EAAFA42CBCF4FA00B2DFBB /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				52EAAFA72CBCF68000B2DFBB /* ShadiProfile.swift */,
+				52EAAFAA2CBCFF6A00B2DFBB /* UserProfile.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		52EAAFA92CBCFE3B00B2DFBB /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -273,8 +281,8 @@
 			files = (
 				52EAAF7F2CBCF0DE00B2DFBB /* Persistence.swift in Sources */,
 				52EAAF822CBCF0DE00B2DFBB /* MatchMate.xcdatamodeld in Sources */,
+				52EAAFAB2CBCFF6A00B2DFBB /* UserProfile.swift in Sources */,
 				52EAAF762CBCF0DD00B2DFBB /* MatchMateApp.swift in Sources */,
-				52EAAFA82CBCF68000B2DFBB /* ShadiProfile.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

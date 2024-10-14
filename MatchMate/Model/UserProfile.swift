@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct ShadiProfile: Decodable {
+struct UserProfile: Decodable {
     var gender, phone, cell, email, nat: String
     var name: NameInfo
     var location: LocationInfo
