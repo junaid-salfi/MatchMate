@@ -25,7 +25,6 @@ public class UserProfileEntity: NSManagedObject {
     @NSManaged public var title: String?
     @NSManaged public var city: String?
     @NSManaged public var country: String?
-    @NSManaged public var postcode: String?
     @NSManaged public var state: String?
     @NSManaged public var dateOfBirth: String?
     @NSManaged public var age: Int32
@@ -34,5 +33,5 @@ public class UserProfileEntity: NSManagedObject {
     @NSManaged public var pictureThumbnail: String?
     @NSManaged public var streetName: String?
     @NSManaged public var streetNumber: Int32
-    @NSManaged public var isAccepted: Bool
+    @NSManaged public var isAccepted: NSNumber?
 }

@@ -13,6 +13,7 @@ struct UserProfile: Decodable {
     var location: LocationInfo
     var dob: DateOfBirthInfo
     var picture: PictureInfo
+    var isAccepted: Bool? = nil
     
     init(from entity: UserProfileEntity)  {
         self.gender = entity.gender ?? ""
@@ -25,11 +26,11 @@ struct UserProfile: Decodable {
             city: entity.city ?? "",
             state: entity.state ?? "",
             country: entity.country ?? "",
-            postcode: entity.postcode ?? "",
             street: StreetInfo(number: Int32(entity.streetNumber), name: entity.streetName ?? "")
         )
         self.dob = DateOfBirthInfo(date: entity.dateOfBirth ?? "", age: Int32(entity.age))
         self.picture = PictureInfo(large: entity.pictureLarge ?? "", medium: entity.pictureMedium ?? "", thumbnail: entity.pictureThumbnail ?? "")
+        self.isAccepted = entity.isAccepted?.boolValue
     }
 }
 
@@ -38,7 +39,7 @@ struct NameInfo: Decodable {
 }
 
 struct LocationInfo: Decodable {
-    var city, state, country, postcode: String
+    var city, state, country: String
     var street: StreetInfo
     var coordinates: CoordinateInfo?
     var timezone: TimeZoneInfo?

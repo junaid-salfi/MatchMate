@@ -35,9 +35,18 @@ class UserProfileViewModel: ObservableObject {
                 }, receiveValue: {
                     [weak self] profiles in
                     self?.profiles = profiles
+                    profiles.forEach { profile in
+                        self?.coreDataService.saveUserProfile(profile, isAccepted: nil)
+                    }
                 })
                 .store(in: &cancellables)
         }
+    }
+    
+    
+    func updateProfileStatus(at index: Int, isAccepted: Bool) {
+        profiles[index].isAccepted = isAccepted
+        coreDataService.saveUserProfile(profiles[index], isAccepted: isAccepted)
     }
     
 }

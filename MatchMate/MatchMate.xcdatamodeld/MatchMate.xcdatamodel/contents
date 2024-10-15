@@ -16,7 +16,6 @@
         <attribute name="pictureLarge" optional="YES" attributeType="String"/>
         <attribute name="pictureMedium" optional="YES" attributeType="String"/>
         <attribute name="pictureThumbnail" optional="YES" attributeType="String"/>
-        <attribute name="postcode" optional="YES" attributeType="String"/>
         <attribute name="state" optional="YES" attributeType="String"/>
         <attribute name="streetName" optional="YES" attributeType="String"/>
         <attribute name="streetNumber" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
