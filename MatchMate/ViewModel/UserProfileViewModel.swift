@@ -12,34 +12,54 @@ import Combine
 class UserProfileViewModel: ObservableObject {
     
     @Published var profiles: [UserProfile] = []
+    @Published var isRefreshing: Bool = false
+    @Published var errorMessage: String? = nil
     private var cancellables = Set<AnyCancellable>()
     private let serviceManager = ServiceManager()
     private let coreDataService = UserProfileRespositoryService()
+    private let networkManager = NetworkManager()
     
     init() {
         fetchProfiles()
     }
     
     func fetchProfiles() {
-        let savedProfiles = coreDataService.fetchUserProfiles()
-        if !savedProfiles.isEmpty {
-            // Handle offline mode
-            self.profiles = savedProfiles.map{ UserProfile(from: $0) }
+        
+        if !networkManager.isConnected {
+            // If no internet connection
+            errorMessage = "You are not connected to the internet."
+            loadProfilesFromDatabase()
+            return
         } else {
             serviceManager.fetchUserProfiles()
                 .sink(receiveCompletion: {
                     completion in
                     if case let .failure(error) = completion {
-                        print("Error fetching profiles: \(error)")
+                        self.errorMessage = "Error fetching profiles: \(error.localizedDescription)"
                     }
                 }, receiveValue: {
                     [weak self] profiles in
-                    self?.profiles = profiles
+                    guard let weakSelf = self else {return}
+                    weakSelf.profiles = profiles
                     profiles.forEach { profile in
-                        self?.coreDataService.saveUserProfile(profile, isAccepted: nil)
+                        weakSelf.coreDataService.saveUserProfile(profile, isAccepted: nil)
+                    }
+                    weakSelf.errorMessage = nil
+                    if profiles.isEmpty {
+                        weakSelf.errorMessage = "No records found."
                     }
                 })
                 .store(in: &cancellables)
+        }
+    }
+    
+    func loadProfilesFromDatabase() {
+        let savedProfiles = coreDataService.fetchUserProfiles()
+        if savedProfiles.isEmpty {
+            errorMessage = "No records found."
+        } else {
+            errorMessage = nil
+            self.profiles = savedProfiles.map{ UserProfile(from: $0) }
         }
     }
     
@@ -47,6 +67,12 @@ class UserProfileViewModel: ObservableObject {
     func updateProfileStatus(at index: Int, isAccepted: Bool) {
         profiles[index].isAccepted = isAccepted
         coreDataService.saveUserProfile(profiles[index], isAccepted: isAccepted)
+    }
+    
+    func refreshProfiles() {
+        isRefreshing = true
+        fetchProfiles()
+        isRefreshing = false
     }
     
 }

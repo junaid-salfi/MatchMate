@@ -24,8 +24,6 @@ struct MatchCardView: View {
                 .frame(maxWidth: .infinity)
                 .padding()
             
-            
-            
             Text("\(userProfile.name.first) \(userProfile.name.last), \(userProfile.dob.age) yrs")
                 .font(.system(size: 22, weight: .bold))
                 .foregroundColor(.black)
@@ -33,55 +31,7 @@ struct MatchCardView: View {
                 .font(.system(size: 16, weight: .semibold))
                 .foregroundColor(.black)
             
-            if userProfile.isAccepted == nil {
-                HStack {
-                    Button(action: {
-                        onStatusChange(false)
-                    }) {
-                        Image(systemName: "xmark")
-                            .foregroundColor(.red)
-                            .font(.system(size: 24, weight: .bold))
-                            .frame(width: 60, height: 60)
-                            .background(Color.white)
-                            .clipShape(Circle())
-                            .shadow(radius: 5)
-                    }
-                    
-                    Spacer()
-    
-                    Button(action: {
-                        onStatusChange(true)
-                    }) {
-                        Image(systemName: "checkmark")
-                            .foregroundColor(.green)
-                            .font(.system(size: 24, weight: .bold))
-                            .frame(width: 60, height: 60)
-                            .background(Color.white)
-                            .clipShape(Circle())
-                            .shadow(radius: 5)
-                    }
-                }
-                .padding(.horizontal, 60)
-                .padding(.vertical, 10)
-            } else {
-                Button(action: {
-                    if userProfile.isAccepted == false {
-                        onStatusChange(true)
-                    } else {
-                        onStatusChange(false)
-                    }
-                }) {
-
-                    Text(userProfile.isAccepted == true ? "Accepted" : "Declined")
-                        .font(.system(size: 16, weight: .bold))
-                        .foregroundColor(Color.white)
-                        .frame(width: 120, height: 40)
-                        .clipped()
-                        .background(Color.blue)
-                }
-                .disabled(userProfile.isAccepted != nil ? true : false)
-                .opacity(userProfile.isAccepted  != nil ? 0.5 : 1.0)
-            }
+            StatusButtonView(userProfile: userProfile, onStatusChange: onStatusChange)
             Divider()
         }
         
