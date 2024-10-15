@@ -14,25 +14,24 @@ struct ProfileListView: View {
     var body: some View {
         NavigationStack {
             
-            VStack {
+            ScrollView {
+
                 if let errorMessage = viewModel.errorMessage {
-                    // Show error or empty state message
-                    Text(errorMessage)
-                        .font(.headline)
-                        .foregroundColor(.red)
-                        .padding()
+                    ContentUnavailableView(
+                               errorMessage,
+                               systemImage: "wifi.exclamationmark",
+                               description: Text("Please check your connection and try again.")
+                    )
                 } else {
-                    ScrollView {
                         ForEach(viewModel.profiles.indices, id: \.self) { index in
                             MatchCardView(userProfile: viewModel.profiles[index]) { isAccepted in
                                 viewModel.updateProfileStatus(at: index, isAccepted: isAccepted)
                             }
                         }
-                    }
-                    .refreshable {
-                        viewModel.fetchProfiles()
-                    }
                 }
+            }
+            .refreshable {
+                viewModel.fetchProfiles()
             }
             .navigationTitle("Profile Matches")
         }

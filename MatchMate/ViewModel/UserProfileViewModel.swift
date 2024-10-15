@@ -35,7 +35,7 @@ class UserProfileViewModel: ObservableObject {
                 .sink(receiveCompletion: {
                     completion in
                     if case let .failure(error) = completion {
-                        self.errorMessage = "Error fetching profiles: \(error.localizedDescription)"
+                        self.errorMessage = error.localizedDescription
                     }
                 }, receiveValue: {
                     [weak self] profiles in
