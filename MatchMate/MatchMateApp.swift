@@ -13,7 +13,7 @@ struct MatchMateApp: App {
 
     var body: some Scene {
         WindowGroup {
-            ProfileListView()
+            ProfileListView(viewModel: UserProfileViewModel(coreDataService: UserProfileRespositoryService()))
         }
     }
 }

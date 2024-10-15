@@ -10,7 +10,7 @@ import CoreData
 
 protocol UserProfileRepository {
     func saveUserProfile(_ profile: UserProfile, isAccepted: Bool?)
-    func fetchUserProfiles() -> [UserProfileEntity]
+    func fetchUserProfiles() throws -> [UserProfileEntity]
 }
 
 class UserProfileRespositoryService: UserProfileRepository {
@@ -54,13 +54,8 @@ class UserProfileRespositoryService: UserProfileRepository {
         }
     }
     
-    func fetchUserProfiles() -> [UserProfileEntity] {
+    func fetchUserProfiles() throws -> [UserProfileEntity] {
         let request: NSFetchRequest<UserProfileEntity> = UserProfileEntity.fetchRequest()
-        do {
-            return try context.fetch(request)
-        } catch {
-            print("Failed to fetch profiles: \(error)")
-            return []
-        }
+        return try context.fetch(request)
     }
 }

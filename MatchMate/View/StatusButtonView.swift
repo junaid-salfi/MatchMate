@@ -44,23 +44,13 @@ struct StatusButtonView: View {
             .padding(.horizontal, 60)
             .padding(.vertical, 10)
         } else {
-            Button(action: {
-                if userProfile.isAccepted == false {
-                    onStatusChange(true)
-                } else {
-                    onStatusChange(false)
-                }
-            }) {
-
-                Text(userProfile.isAccepted == true ? "Accepted" : "Declined")
-                    .frame(width: 300, height: 40)
-                    .font(.system(size: 16, weight: .bold))
-                    .foregroundColor(Color.white)
-                    .background(Color.blue)
-            }
-            .clipShape(RoundedRectangle(cornerRadius: 8))
-            .disabled(userProfile.isAccepted != nil ? true : false)
-            .opacity(userProfile.isAccepted  != nil ? 0.5 : 1.0)
+            Text(userProfile.isAccepted == true ? "Accepted" : "Declined")
+                .frame(width: 300, height: 40)
+                .font(.system(size: 16, weight: .bold))
+                .foregroundColor(Color.white)
+                .background(Color.blue)
+                .clipShape(RoundedRectangle(cornerRadius: 8))
+                .opacity(userProfile.isAccepted  != nil ? 0.5 : 1.0)
         }
     }
 }

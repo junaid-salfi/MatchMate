@@ -9,57 +9,78 @@ import Foundation
 import CoreData
 import Combine
 
+enum AppState {
+    case loading
+    case finished
+    case error(String)
+}
+
+enum ErrorMessgae: String {
+    case connectionError
+    
+    var description: String {
+        switch self {
+        case .connectionError:
+            return "The Internet connection appears to be offline"
+        }
+    }
+}
+
 class UserProfileViewModel: ObservableObject {
     
     @Published var profiles: [UserProfile] = []
-    @Published var isRefreshing: Bool = false
-    @Published var errorMessage: String? = nil
-    private var cancellables = Set<AnyCancellable>()
+    @Published var state: AppState = .loading
     private let serviceManager = ServiceManager()
-    private let coreDataService = UserProfileRespositoryService()
-    private let networkManager = NetworkManager()
+    private let coreDataService: UserProfileRepository
+    private let networkConnectivity = NetworkConnectivity()
+    private var cancellables = Set<AnyCancellable>()
     
-    init() {
-        fetchProfiles()
+    
+    init(coreDataService: UserProfileRepository) {
+        self.coreDataService = coreDataService
+        trackConnectivitity()
     }
     
+    @MainActor
     func fetchProfiles() {
-        
-        if !networkManager.isConnected {
-            // If no internet connection
-            errorMessage = "You are not connected to the internet."
+        guard networkConnectivity.isConnected else {
+            // If no internet connectio
             loadProfilesFromDatabase()
             return
-        } else {
-            serviceManager.fetchUserProfiles()
-                .sink(receiveCompletion: {
-                    completion in
-                    if case let .failure(error) = completion {
-                        self.errorMessage = error.localizedDescription
-                    }
-                }, receiveValue: {
-                    [weak self] profiles in
-                    guard let weakSelf = self else {return}
-                    weakSelf.profiles = profiles
-                    profiles.forEach { profile in
-                        weakSelf.coreDataService.saveUserProfile(profile, isAccepted: nil)
-                    }
-                    weakSelf.errorMessage = nil
-                    if profiles.isEmpty {
-                        weakSelf.errorMessage = "No records found."
-                    }
-                })
-                .store(in: &cancellables)
+        }
+        
+        state = .loading
+        
+        Task {
+            do {
+                let result = try await serviceManager.fetchUserProfiles()
+                guard !result.isEmpty else {
+                    state = .error("No Records found.")
+                    return
+                }
+                profiles = result
+                profiles.forEach { profile in
+                    coreDataService.saveUserProfile(profile, isAccepted: nil)
+                }
+                state = .finished
+            } catch {
+               state = .error(error.localizedDescription)
+            }
+            
         }
     }
     
     func loadProfilesFromDatabase() {
-        let savedProfiles = coreDataService.fetchUserProfiles()
-        if savedProfiles.isEmpty {
-            errorMessage = "No records found."
-        } else {
-            errorMessage = nil
+        do {
+            let savedProfiles = try coreDataService.fetchUserProfiles()
+            guard !savedProfiles.isEmpty else {
+                state = .error("No records found.")
+                return
+            }
             self.profiles = savedProfiles.map{ UserProfile(from: $0) }
+            state = .finished
+        } catch {
+            state = .error(error.localizedDescription)
         }
     }
     
@@ -69,10 +90,21 @@ class UserProfileViewModel: ObservableObject {
         coreDataService.saveUserProfile(profiles[index], isAccepted: isAccepted)
     }
     
-    func refreshProfiles() {
-        isRefreshing = true
-        fetchProfiles()
-        isRefreshing = false
+    private func trackConnectivitity() {
+        networkConnectivity.$isConnected
+            .sink { [weak self] isConnected in
+                guard let weakSelf = self else {
+                    return
+                }
+                if isConnected {
+                    Task {
+                        await weakSelf.fetchProfiles()
+                    }
+                } else {
+                    weakSelf.loadProfilesFromDatabase()
+                }
+            }
+            .store(in: &cancellables)
     }
     
 }

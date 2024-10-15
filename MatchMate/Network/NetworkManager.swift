@@ -8,8 +8,8 @@
 import Foundation
 import Network
 
-class NetworkManager: ObservableObject {
-    @Published var isConnected: Bool = true
+class NetworkConnectivity: ObservableObject {
+    @Published var isConnected: Bool = false
     private var monitor: NWPathMonitor
     private var queue = DispatchQueue.global(qos: .background)
     
