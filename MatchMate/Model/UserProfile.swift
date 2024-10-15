@@ -7,7 +7,8 @@
 
 import Foundation
 
-struct UserProfile: Decodable {
+struct UserProfile: Decodable, Identifiable {
+    var id: String
     var gender, phone, cell, email, nat: String
     var name: NameInfo
     var location: LocationInfo
@@ -16,6 +17,7 @@ struct UserProfile: Decodable {
     var isAccepted: Bool? = nil
     
     init(from entity: UserProfileEntity)  {
+        self.id = entity.id ?? ""
         self.gender = entity.gender ?? ""
         self.phone = entity.phone ?? ""
         self.cell = entity.cellNumber ?? ""
@@ -31,6 +33,35 @@ struct UserProfile: Decodable {
         self.dob = DateOfBirthInfo(date: entity.dateOfBirth ?? "", age: Int32(entity.age))
         self.picture = PictureInfo(large: entity.pictureLarge ?? "", medium: entity.pictureMedium ?? "", thumbnail: entity.pictureThumbnail ?? "")
         self.isAccepted = entity.isAccepted?.boolValue
+    }
+    
+    enum CodingKeys: CodingKey {
+        case id
+        case gender
+        case phone
+        case cell
+        case email
+        case nat
+        case name
+        case location
+        case dob
+        case picture
+        case isAccepted
+    }
+    
+    init(from decoder: any Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        self.gender = try container.decode(String.self, forKey: .gender)
+        self.phone = try container.decode(String.self, forKey: .phone)
+        self.cell = try container.decode(String.self, forKey: .cell)
+        self.email = try container.decode(String.self, forKey: .email)
+        self.nat = try container.decode(String.self, forKey: .nat)
+        self.name = try container.decode(NameInfo.self, forKey: .name)
+        self.location = try container.decode(LocationInfo.self, forKey: .location)
+        self.dob = try container.decode(DateOfBirthInfo.self, forKey: .dob)
+        self.picture = try container.decode(PictureInfo.self, forKey: .picture)
+        self.isAccepted = try container.decodeIfPresent(Bool.self, forKey: .isAccepted)
+        self.id = self.email
     }
 }
 

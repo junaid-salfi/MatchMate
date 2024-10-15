@@ -14,7 +14,7 @@ public class UserProfileEntity: NSManagedObject {
     @nonobjc public class func fetchRequest() -> NSFetchRequest<UserProfileEntity> {
         return NSFetchRequest<UserProfileEntity>(entityName: "UserProfileEntity")
     }
-
+    @NSManaged public var id: String?
     @NSManaged public var gender: String?
     @NSManaged public var phone: String?
     @NSManaged public var cellNumber: String?

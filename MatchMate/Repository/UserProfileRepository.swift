@@ -28,6 +28,7 @@ class UserProfileRespositoryService: UserProfileRepository {
                 existingProfile.isAccepted = isAccepted as NSNumber?
             } else {
                 let userProfileEntity = UserProfileEntity(context: context)
+                userProfileEntity.id = profile.id
                 userProfileEntity.email = profile.email
                 userProfileEntity.age = profile.dob.age
                 userProfileEntity.dateOfBirth = profile.dob.date

@@ -15,17 +15,6 @@ enum AppState {
     case error(String)
 }
 
-enum ErrorMessgae: String {
-    case connectionError
-    
-    var description: String {
-        switch self {
-        case .connectionError:
-            return "The Internet connection appears to be offline"
-        }
-    }
-}
-
 class UserProfileViewModel: ObservableObject {
     
     @Published var profiles: [UserProfile] = []
@@ -44,18 +33,19 @@ class UserProfileViewModel: ObservableObject {
     @MainActor
     func fetchProfiles() {
         guard networkConnectivity.isConnected else {
-            // If no internet connectio
+            // If no internet connection
             loadProfilesFromDatabase()
             return
         }
-        
+//        guard profiles.isEmpty else {
+//            return
+//        }
         state = .loading
-        
         Task {
             do {
                 let result = try await serviceManager.fetchUserProfiles()
                 guard !result.isEmpty else {
-                    state = .error("No Records found.")
+                    state = .error("You are not connected to the internet.")
                     return
                 }
                 profiles = result
@@ -64,7 +54,11 @@ class UserProfileViewModel: ObservableObject {
                 }
                 state = .finished
             } catch {
-               state = .error(error.localizedDescription)
+                if networkConnectivity.isConnected {
+                    state = .error(error.localizedDescription)
+                } else {
+                    loadProfilesFromDatabase()
+                }
             }
             
         }
@@ -85,9 +79,11 @@ class UserProfileViewModel: ObservableObject {
     }
     
     
-    func updateProfileStatus(at index: Int, isAccepted: Bool) {
-        profiles[index].isAccepted = isAccepted
-        coreDataService.saveUserProfile(profiles[index], isAccepted: isAccepted)
+    func update(profile: UserProfile, isAccepted: Bool) {
+        if let index = profiles.firstIndex(where: { $0.id == profile.id }) {
+            profiles[index].isAccepted = isAccepted
+            coreDataService.saveUserProfile(profiles[index], isAccepted: isAccepted)
+        }
     }
     
     private func trackConnectivitity() {

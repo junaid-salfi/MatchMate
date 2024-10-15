@@ -25,7 +25,7 @@ struct ProfileListView: View {
                 case .error(let errorMessage):
                     ContentUnavailableView(
                         errorMessage,
-                        systemImage: "wifi.exclamationmark",
+                        systemImage: "",
                         description: Text("Please check your connection and try again.")
                     )
                 }
@@ -41,13 +41,15 @@ struct ProfileListView: View {
     }
     
     @ViewBuilder private var profileList: some View {
-        ScrollView{
-            ForEach(viewModel.profiles.indices, id: \.self) { index in
-                MatchCardView(userProfile: viewModel.profiles[index]) { isAccepted in
-                    viewModel.updateProfileStatus(at: index, isAccepted: isAccepted)
+        List {
+            ForEach(viewModel.profiles) { profile in
+                MatchCardView(userProfile: profile) { profile, isAccepted in
+                    viewModel.update(profile: profile, isAccepted: isAccepted)
                 }
             }
         }
+        .listStyle(.grouped)
+        .listRowSeparator(.hidden)
     }
 }
 
