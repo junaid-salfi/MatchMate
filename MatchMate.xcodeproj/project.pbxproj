@@ -7,8 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		522D7C9A2CBECB1F00F973C6 /* NetworkConnectivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 522D7C992CBECB1F00F973C6 /* NetworkConnectivity.swift */; };
+		52B44D2C2CBE202300CCE22A /* StatusButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52B44D2B2CBE202300CCE22A /* StatusButtonView.swift */; };
 		52EAAF762CBCF0DD00B2DFBB /* MatchMateApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52EAAF752CBCF0DD00B2DFBB /* MatchMateApp.swift */; };
-		52EAAF782CBCF0DD00B2DFBB /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52EAAF772CBCF0DD00B2DFBB /* ContentView.swift */; };
 		52EAAF7A2CBCF0DE00B2DFBB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 52EAAF792CBCF0DE00B2DFBB /* Assets.xcassets */; };
 		52EAAF7D2CBCF0DE00B2DFBB /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 52EAAF7C2CBCF0DE00B2DFBB /* Preview Assets.xcassets */; };
 		52EAAF7F2CBCF0DE00B2DFBB /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52EAAF7E2CBCF0DE00B2DFBB /* Persistence.swift */; };
@@ -16,6 +17,15 @@
 		52EAAF8C2CBCF0DF00B2DFBB /* MatchMateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52EAAF8B2CBCF0DF00B2DFBB /* MatchMateTests.swift */; };
 		52EAAF962CBCF0DF00B2DFBB /* MatchMateUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52EAAF952CBCF0DF00B2DFBB /* MatchMateUITests.swift */; };
 		52EAAF982CBCF0DF00B2DFBB /* MatchMateUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52EAAF972CBCF0DF00B2DFBB /* MatchMateUITestsLaunchTests.swift */; };
+		52EAAFAB2CBCFF6A00B2DFBB /* UserProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52EAAFAA2CBCFF6A00B2DFBB /* UserProfile.swift */; };
+		52EAAFAE2CBD13AE00B2DFBB /* UserProfileEntity+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52EAAFAC2CBD13AE00B2DFBB /* UserProfileEntity+CoreDataClass.swift */; };
+		52EAAFB32CBD145400B2DFBB /* UserProfileRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52EAAFB22CBD145400B2DFBB /* UserProfileRepository.swift */; };
+		52EAAFB62CBD1B2D00B2DFBB /* ApiResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52EAAFB52CBD1B2D00B2DFBB /* ApiResponseModel.swift */; };
+		52EAAFB82CBD1B6A00B2DFBB /* ServiceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52EAAFB72CBD1B6A00B2DFBB /* ServiceManager.swift */; };
+		52EAAFBA2CBD1D1200B2DFBB /* UserProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52EAAFB92CBD1D1200B2DFBB /* UserProfileViewModel.swift */; };
+		52EAAFBD2CBD24E000B2DFBB /* MatchCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52EAAFBC2CBD24E000B2DFBB /* MatchCardView.swift */; };
+		52EAAFC02CBD32D600B2DFBB /* SDWebImageSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = 52EAAFBF2CBD32D600B2DFBB /* SDWebImageSwiftUI */; };
+		52EAAFC22CBD343900B2DFBB /* ProfileListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52EAAFC12CBD343900B2DFBB /* ProfileListView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,9 +46,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		522D7C992CBECB1F00F973C6 /* NetworkConnectivity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkConnectivity.swift; sourceTree = "<group>"; };
+		52B44D2B2CBE202300CCE22A /* StatusButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusButtonView.swift; sourceTree = "<group>"; };
 		52EAAF722CBCF0DD00B2DFBB /* MatchMate.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MatchMate.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		52EAAF752CBCF0DD00B2DFBB /* MatchMateApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchMateApp.swift; sourceTree = "<group>"; };
-		52EAAF772CBCF0DD00B2DFBB /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		52EAAF792CBCF0DE00B2DFBB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		52EAAF7C2CBCF0DE00B2DFBB /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		52EAAF7E2CBCF0DE00B2DFBB /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
@@ -48,6 +59,14 @@
 		52EAAF912CBCF0DF00B2DFBB /* MatchMateUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MatchMateUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		52EAAF952CBCF0DF00B2DFBB /* MatchMateUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchMateUITests.swift; sourceTree = "<group>"; };
 		52EAAF972CBCF0DF00B2DFBB /* MatchMateUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchMateUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		52EAAFAA2CBCFF6A00B2DFBB /* UserProfile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserProfile.swift; sourceTree = "<group>"; };
+		52EAAFAC2CBD13AE00B2DFBB /* UserProfileEntity+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserProfileEntity+CoreDataClass.swift"; sourceTree = "<group>"; };
+		52EAAFB22CBD145400B2DFBB /* UserProfileRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileRepository.swift; sourceTree = "<group>"; };
+		52EAAFB52CBD1B2D00B2DFBB /* ApiResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiResponseModel.swift; sourceTree = "<group>"; };
+		52EAAFB72CBD1B6A00B2DFBB /* ServiceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceManager.swift; sourceTree = "<group>"; };
+		52EAAFB92CBD1D1200B2DFBB /* UserProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileViewModel.swift; sourceTree = "<group>"; };
+		52EAAFBC2CBD24E000B2DFBB /* MatchCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchCardView.swift; sourceTree = "<group>"; };
+		52EAAFC12CBD343900B2DFBB /* ProfileListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileListView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,6 +74,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				52EAAFC02CBD32D600B2DFBB /* SDWebImageSwiftUI in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -75,6 +95,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		52B44D282CBDF74C00CCE22A /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				522D7C992CBECB1F00F973C6 /* NetworkConnectivity.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
 		52EAAF692CBCF0DD00B2DFBB = {
 			isa = PBXGroup;
 			children = (
@@ -98,8 +126,13 @@
 		52EAAF742CBCF0DD00B2DFBB /* MatchMate */ = {
 			isa = PBXGroup;
 			children = (
+				52B44D282CBDF74C00CCE22A /* Network */,
+				52EAAFBB2CBD24C600B2DFBB /* View */,
+				52EAAFB42CBD1ABA00B2DFBB /* Service */,
+				52EAAFB12CBD143B00B2DFBB /* Repository */,
+				52EAAFA92CBCFE3B00B2DFBB /* ViewModel */,
+				52EAAFA42CBCF4FA00B2DFBB /* Model */,
 				52EAAF752CBCF0DD00B2DFBB /* MatchMateApp.swift */,
-				52EAAF772CBCF0DD00B2DFBB /* ContentView.swift */,
 				52EAAF792CBCF0DE00B2DFBB /* Assets.xcassets */,
 				52EAAF7E2CBCF0DE00B2DFBB /* Persistence.swift */,
 				52EAAF802CBCF0DE00B2DFBB /* MatchMate.xcdatamodeld */,
@@ -133,6 +166,58 @@
 			path = MatchMateUITests;
 			sourceTree = "<group>";
 		};
+		52EAAFA42CBCF4FA00B2DFBB /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				52EAAFB02CBD13BD00B2DFBB /* CoreDataModel */,
+				52EAAFAA2CBCFF6A00B2DFBB /* UserProfile.swift */,
+				52EAAFB52CBD1B2D00B2DFBB /* ApiResponseModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		52EAAFA92CBCFE3B00B2DFBB /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				52EAAFB92CBD1D1200B2DFBB /* UserProfileViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		52EAAFB02CBD13BD00B2DFBB /* CoreDataModel */ = {
+			isa = PBXGroup;
+			children = (
+				52EAAFAC2CBD13AE00B2DFBB /* UserProfileEntity+CoreDataClass.swift */,
+			);
+			path = CoreDataModel;
+			sourceTree = "<group>";
+		};
+		52EAAFB12CBD143B00B2DFBB /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+				52EAAFB22CBD145400B2DFBB /* UserProfileRepository.swift */,
+			);
+			path = Repository;
+			sourceTree = "<group>";
+		};
+		52EAAFB42CBD1ABA00B2DFBB /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				52EAAFB72CBD1B6A00B2DFBB /* ServiceManager.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		52EAAFBB2CBD24C600B2DFBB /* View */ = {
+			isa = PBXGroup;
+			children = (
+				52EAAFBC2CBD24E000B2DFBB /* MatchCardView.swift */,
+				52EAAFC12CBD343900B2DFBB /* ProfileListView.swift */,
+				52B44D2B2CBE202300CCE22A /* StatusButtonView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -149,6 +234,9 @@
 			dependencies = (
 			);
 			name = MatchMate;
+			packageProductDependencies = (
+				52EAAFBF2CBD32D600B2DFBB /* SDWebImageSwiftUI */,
+			);
 			productName = MatchMate;
 			productReference = 52EAAF722CBCF0DD00B2DFBB /* MatchMate.app */;
 			productType = "com.apple.product-type.application";
@@ -221,6 +309,9 @@
 				Base,
 			);
 			mainGroup = 52EAAF692CBCF0DD00B2DFBB;
+			packageReferences = (
+				52EAAFBE2CBD32D600B2DFBB /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */,
+			);
 			productRefGroup = 52EAAF732CBCF0DD00B2DFBB /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -263,10 +354,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				522D7C9A2CBECB1F00F973C6 /* NetworkConnectivity.swift in Sources */,
 				52EAAF7F2CBCF0DE00B2DFBB /* Persistence.swift in Sources */,
-				52EAAF782CBCF0DD00B2DFBB /* ContentView.swift in Sources */,
 				52EAAF822CBCF0DE00B2DFBB /* MatchMate.xcdatamodeld in Sources */,
+				52EAAFB62CBD1B2D00B2DFBB /* ApiResponseModel.swift in Sources */,
+				52EAAFB82CBD1B6A00B2DFBB /* ServiceManager.swift in Sources */,
+				52EAAFAB2CBCFF6A00B2DFBB /* UserProfile.swift in Sources */,
+				52B44D2C2CBE202300CCE22A /* StatusButtonView.swift in Sources */,
+				52EAAFB32CBD145400B2DFBB /* UserProfileRepository.swift in Sources */,
+				52EAAFC22CBD343900B2DFBB /* ProfileListView.swift in Sources */,
+				52EAAFAE2CBD13AE00B2DFBB /* UserProfileEntity+CoreDataClass.swift in Sources */,
 				52EAAF762CBCF0DD00B2DFBB /* MatchMateApp.swift in Sources */,
+				52EAAFBD2CBD24E000B2DFBB /* MatchCardView.swift in Sources */,
+				52EAAFBA2CBD1D1200B2DFBB /* UserProfileViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -590,6 +690,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		52EAAFBE2CBD32D600B2DFBB /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SDWebImage/SDWebImageSwiftUI";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.1.2;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		52EAAFBF2CBD32D600B2DFBB /* SDWebImageSwiftUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 52EAAFBE2CBD32D600B2DFBB /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */;
+			productName = SDWebImageSwiftUI;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		52EAAF802CBCF0DE00B2DFBB /* MatchMate.xcdatamodeld */ = {
