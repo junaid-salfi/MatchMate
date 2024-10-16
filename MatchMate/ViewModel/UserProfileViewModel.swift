@@ -37,9 +37,9 @@ class UserProfileViewModel: ObservableObject {
             loadProfilesFromDatabase()
             return
         }
-//        guard profiles.isEmpty else {
-//            return
-//        }
+        guard profiles.isEmpty else {
+            return
+        }
         state = .loading
         Task {
             do {

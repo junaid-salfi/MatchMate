@@ -9,18 +9,11 @@ import Foundation
 import Network
 
 class NetworkConnectivity: ObservableObject {
-    enum ConnectivityState {
-        case connected
-        case disconnected
-    }
-
+ 
     @Published var isConnected: Bool = true
-    private var connected: Bool = true
     private var monitor: NWPathMonitor
     private let queue = DispatchQueue(label: "NetworkMonitor")
     
-    private var previousState: ConnectivityState = .connected
-
     init() {
         monitor = NWPathMonitor()
         startMonitoring()

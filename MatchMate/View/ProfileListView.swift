@@ -8,8 +8,8 @@
 import SwiftUI
 
 struct ProfileListView: View {
-    @StateObject private var viewModel: UserProfileViewModel
     
+    @StateObject private var viewModel: UserProfileViewModel
     init(viewModel: UserProfileViewModel) {
         _viewModel = StateObject(wrappedValue: viewModel)
     }
