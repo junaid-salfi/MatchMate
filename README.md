@@ -6,6 +6,10 @@ Frameworks that have been used are mentioned below:
 4. For offline support we have implmented CoreData 
 5. The app has been created in MVVM Architecture Pattern
 
+
+Requirments:
+I tried to meet the requirements as mentioned in the documnetation and also improvised the UI/UX  for better performnance
+
 Challenges:
 The core functionality was simple to fecth the profile but I faced a challenge to test the app in offline on simulator, sometimes it shows unexpected behaviour when i turn on/off my wifi
 The iOS simulator doesn't always simulate Wi-Fi state changes perfectly. For example, turning off your Mac’s Wi-Fi or changing network settings might not behave the same way in the simulator as it would on a real device.
